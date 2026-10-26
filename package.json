@@ -16,9 +16,10 @@
   "scripts": {
     "start": "node bin/nesterm.mjs",
     "check:public": "node scripts/check-public-scope.mjs",
-    "test": "node --test test/core.test.mjs test/installer.test.mjs test/terminal.test.mjs test/public-scope.test.mjs",
-    "capture": "node scripts/capture.mjs"
+    "test": "node --test test/core.test.mjs test/installer.test.mjs test/terminal.test.mjs test/public-scope.test.mjs test/windows.test.mjs",
+    "capture": "node scripts/capture.mjs",
+    "build:windows": "node scripts/build-windows.mjs"
   },
   "dependencies": { "@nesjs/core": "2.7.0" },
-  "devDependencies": { "@napi-rs/canvas": "0.1.80", "@xterm/headless": "5.5.0" }
+  "devDependencies": { "@napi-rs/canvas": "0.1.80", "@xterm/headless": "5.5.0", "esbuild": "0.28.2" }
 }

@@ -1,5 +1,6 @@
-import { open, readFile } from 'node:fs/promises';
+import { open } from 'node:fs/promises';
 import { performance } from 'node:perf_hooks';
+import { readRom } from './zip.mjs';
 
 export const COLS = 40;
 export const ROWS = 25;
@@ -31,7 +32,7 @@ const KEY_BY_CODEPOINT = new Map([
 
 const KEY_BY_ARROW = Object.freeze({ A: 'up', B: 'down', C: 'right', D: 'left' });
 
-export const HELP = `Usage: nesterm [options] <rom.nes>
+export const HELP = `Usage: nesterm [options] <rom.nes or rom.zip>
 
 Render an NES ROM as a 40x25 or 64x30 ASCII display.
 
@@ -519,7 +520,7 @@ export async function runTerminal(options, {
   const rows = options.rows ?? GRID_SIZES[options.size]?.rows ?? ROWS;
   const grid = { cols, rows };
   assertTerminalSize(stdout, grid);
-  const rom = new Uint8Array(await readFile(options.rom));
+  const rom = await readRom(options.rom);
   const [{ Emulator }, { AsciiRenderer }] = await loadModules();
   let latestFrame = null;
   const emulator = new Emulator({ onFrame: (frame) => { latestFrame = frame; } });

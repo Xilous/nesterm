@@ -32,6 +32,23 @@ Already use npm? Install the dependency-bundled release instead:
 npm install --global https://github.com/kathoc/nesterm/releases/download/v0.1.0/nesterm-0.1.0.tgz
 ```
 
+## Windows
+
+`nesterm.exe` is a single file with Node.js inside it, so nothing else needs to be installed. It runs on Windows 10 and 11 (x64), in Windows Terminal or the classic console.
+
+1. Double-click `nesterm.exe`. Windows may show "Windows protected your PC" because the file is not code-signed: choose **More info**, then **Run anyway**.
+2. Pick your ROM in the window that opens. A `.nes` file or a `.zip` holding one both work. You can also drag a ROM onto `nesterm.exe`.
+3. Read the controls, then press any key to play.
+
+The game uses the 64 × 30 display when the window is big enough, and 40 × 25 otherwise. Maximize the window, or press Ctrl and plus in Windows Terminal, to make the picture bigger. On Windows the game reads key presses and releases straight from the console, so held keys and run-and-jump combinations work without the Kitty keyboard protocol.
+
+To build the executable yourself, use Node.js 26 or newer on Windows:
+
+```powershell
+npm ci
+npm run build:windows   # writes dist\nesterm.exe
+```
+
 ## Play a game
 
 Bring your own `.nes` ROM. ROMs are not included or downloaded.
@@ -117,7 +134,7 @@ The command will then be at `~/apps/nesterm/bin/nesterm`. To uninstall, remove t
 
 **A ROM does not load or behaves incorrectly:** compatibility depends on the emulation core. [Open an issue](https://github.com/kathoc/nesterm/issues) with your OS, terminal, Node.js version, command and ROM name/hash. Do not attach ROM files.
 
-Save-file persistence and terminal audio are not implemented. macOS and Linux are the installer targets; the Node.js CLI may also work on Windows, but this installer does not support it.
+Save-file persistence and terminal audio are not implemented. macOS and Linux are the installer targets; on Windows, use `nesterm.exe` (see [Windows](#windows)).
 
 ## Build from source
 

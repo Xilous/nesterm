@@ -6,16 +6,17 @@ import { fileURLToPath } from 'node:url';
 export const publicFiles = new Set([
   '.github/workflows/ci.yml', '.githooks/pre-commit', '.githooks/pre-push',
   '.gitignore', 'AGENTS.md', 'LICENSE', 'LICENSES-glyphs.txt', 'README.md',
-  'THIRD_PARTY_NOTICES.md', 'bin/nesterm.mjs', 'docs/release-spec.md',
+  'THIRD_PARTY_NOTICES.md', 'bin/nesterm.mjs', 'bin/nesterm-windows.mjs',
+  'docs/release-spec.md',
   'install.sh', 'package.json', 'package-lock.json',
-  'scripts/check-public-scope.mjs', 'scripts/capture.mjs',
+  'scripts/build-windows.mjs', 'scripts/check-public-scope.mjs', 'scripts/capture.mjs',
   'scripts/demo-events.mjs', 'scripts/generate-glyphs.mjs',
   'scripts/record-terminal.mjs', 'scripts/release.mjs',
   'scripts/runtime-paths.mjs', 'scripts/terminal-video.mjs',
   'src/emulator.mjs', 'src/glyphs.mjs', 'src/renderer.mjs',
-  'src/shape.mjs', 'src/terminal.mjs',
+  'src/shape.mjs', 'src/terminal.mjs', 'src/windows.mjs', 'src/zip.mjs',
   'test/core.test.mjs', 'test/installer.test.mjs',
-  'test/terminal.test.mjs', 'test/public-scope.test.mjs',
+  'test/terminal.test.mjs', 'test/public-scope.test.mjs', 'test/windows.test.mjs',
 ]);
 
 export function assertPublicPaths(paths) {
